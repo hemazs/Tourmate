@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://tourmate-server.vercel.app/allcountrydetails/${params?.country_name}`
+            `https://tourmate-beige.vercel.app/allcountrydetails/${params?.country_name}`
           ),
       },
       {

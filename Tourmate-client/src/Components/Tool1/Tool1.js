@@ -18,7 +18,7 @@ const Tool1 = () => {
     // Fetching allCountryDetails data from database
     axios
       .patch(
-        `https://tourmate-server.vercel.app/allcountrydetails?budget=${budget}`
+        `https://tourmate-beige.vercel.app/allcountrydetails?budget=${budget}`
       )
       .then((res) => {
         setAllCountryDetails(res.data);

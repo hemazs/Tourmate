@@ -9,7 +9,7 @@ const UpdateCost = () => {
   useEffect(() => {
     // Fetching allCountryDetails data from database
     axios
-      .get(`https://tourmate-server.vercel.app/allcountrydetails`)
+      .get(`https://tourmate-beige.vercel.app/allcountrydetails`)
       .then((res) => setAllCountryDetails(res.data));
   }, []);
 
@@ -19,7 +19,7 @@ const UpdateCost = () => {
 
     // Fetching country data by country from database
     axios
-      .get(`https://tourmate-server.vercel.app/allcountrydetails/${country}`)
+      .get(`https://tourmate-beige.vercel.app/allcountrydetails/${country}`)
       .then((res) => {
         setCountryDetails(res.data);
       });

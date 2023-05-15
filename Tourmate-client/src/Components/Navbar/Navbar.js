@@ -19,7 +19,7 @@ const Navbar = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`https://tourmate-server.vercel.app/admin?email=${user?.email}`)
+        .get(`https://tourmate-beige.vercel.app/admin?email=${user?.email}`)
         .then((res) => {
           setAdmin(res.data);
         })

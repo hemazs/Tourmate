@@ -8,7 +8,7 @@ const RemoveCountry = () => {
   useEffect(() => {
     // Fetching allCountryDetails data from database
     axios
-      .get(`https://tourmate-server.vercel.app/allcountrydetails`)
+      .get(`https://tourmate-beige.vercel.app/allcountrydetails`)
       .then((res) => setAllCountryDetails(res.data));
   }, [allCountryDetails]);
 
@@ -16,7 +16,7 @@ const RemoveCountry = () => {
     // Deleting country data by country from database
     axios
       .delete(
-        `https://tourmate-server.vercel.app/deletecountry/${country_name}`
+        `https://tourmate-beige.vercel.app/deletecountry/${country_name}`
       )
       .then((res) => {
         if (res.data.deletedCount > 0) {
