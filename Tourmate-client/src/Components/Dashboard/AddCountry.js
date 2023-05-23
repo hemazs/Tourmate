@@ -64,7 +64,7 @@ const AddCountry = () => {
 
     // Add new country to database
     axios
-      .post(`https://tourmate-beige.vercel.app/addcountry`, newCountry)
+      .post(`https://tourmate-server.vercel.app/addcountry`, newCountry)
       .then((res) => {
         if (res.data.insertedId !== null) {
           toast.success("Country added successfully");

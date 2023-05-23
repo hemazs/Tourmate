@@ -26,7 +26,7 @@ const Tool2 = () => {
   useEffect(() => {
     // Fetching allCountryDetails data from database
     axios
-      .get(`https://tourmate-beige.vercel.app/allcountrydetails`)
+      .get(`https://tourmate-server.vercel.app/allcountrydetails`)
       .then((res) => setAllCountryDetails(res.data));
   }, []);
 
@@ -43,7 +43,7 @@ const Tool2 = () => {
     clearCurrency();
     // Fetching country data by country from database
     axios
-      .get(`https://tourmate-beige.vercel.app/allcountrydetails/${country}`)
+      .get(`https://tourmate-server.vercel.app/allcountrydetails/${country}`)
       .then((res) => {
         setCountryDetails(res.data);
 
