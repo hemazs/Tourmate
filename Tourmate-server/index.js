@@ -2,7 +2,8 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
+require("dotenv").config();
 
 // Middlewares
 app.use(cors());
@@ -13,11 +14,8 @@ app.get("/", (req, res) => {
   res.send("TourMate server is running...");
 });
 
-// Databse UserName: tourmate
-// Database Password: 2tBf52kCMWGaLExg
 // MongoDB connection
-const uri =
-  "mongodb+srv://tourmate:2tBf52kCMWGaLExg@cluster0.iwxuiom.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
