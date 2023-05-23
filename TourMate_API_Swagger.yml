@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  title: TourMateAPI
+  version: 1.0.0
+paths:
+  /allcountrydetails:
+    get:
+      summary: Get all countries
+      operationId: getAllCountries
+      responses:
+        '200':
+          description: OK
+    parameters:
+      - in: query
+        name: budget
+        schema:
+          type: number
+        description: Budget for selecting countries with a total cost lower than the budget
+    get:
+      summary: Get countries by budget
+      operationId: getCountriesByBudget
+      responses:
+        '200':
+          description: OK
+  /allcountrydetails/{countryName}:
+    get:
+      summary: Get country by name
+      operationId: getCountryByName
+      parameters:
+        - in: path
+          name: countryName
+          schema:
+            type: string
+          required: true
+          description: Name of the country
+      responses:
+        '200':
+          description: OK
+  /addcountry:
+    post:
+      summary: Add a new country
+      operationId: addCountry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                country_name:
+                  type: string
+                capital_name:
+                  type: string
+                currency_code:
+                  type: string
+                cuisine:
+                  type: string
+                airfare_cost:
+                  type: number
+                accommodation_cost:
+                  type: number
+                meals_cost:
+                  type: number
+                total_cost:
+                  type: number
+              required:
+                - country_name
+                - capital_name
+                - currency_code
+                - cuisine
+                - airfare_cost
+                - accommodation_cost
+                - meals_cost
+                - total_cost
+      responses:
+        '200':
+          description: OK
+  /deletecountry/{countryName}:
+    delete:
+      summary: Delete country by name
+      operationId: deleteCountryByName
+      parameters:
+        - in: path
+          name: countryName
+          schema:
+            type: string
+          required: true
+          description: Name of the country
+      responses:
+        '200':
+          description: OK
+  /updatecost/{countryName}:
+    patch:
+      summary: Update country cost by name
+      operationId: updateCountryCostByName
+      parameters:
+        - in: path
+          name: countryName
+          schema:
+            type: string
+          required: true
+          description: Name of the country
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                airfare_cost:
+                  type: number
+                accommodation_cost:
+                  type: number
+                meals_cost:
+                  type: number
+                total_cost:
+                  type: number
+              required:
+                - airfare_cost
+                - accommodation_cost
+                - meals_cost
+                - total_cost
+      responses:
+        '200':
+          description: OK
+  /:
+    get:
+      summary: Server check
+      operationId: serverCheck
+      responses:
+        '200':
+          description: OK
+  /admin:
+    get:
+      summary: Authenticate admin (TRUE)
+      operationId: authAdminTrue
+      parameters:
+        - in: query
+          name: email
+          schema:
+            type: string
+          required: true
+          description: Admin email
+      responses:
+        '200':
+          description: OK
+    get:
+      summary: Authenticate admin (FALSE)
+      operationId: authAdminFalse
+      parameters:
+        - in: query
+          name: email
+          schema:
+            type: string
+          required: true
+          description: Admin email
+      responses:
+        '200':
+          description: OK
